@@ -44,3 +44,4 @@ function calculate() {
     display.value = "Error";
   }
 }
+git remote add origin https://github.com/syallfamily-prog/Professional-Basic-Calculator.git
