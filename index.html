@@ -3,23 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scientific Calculator</title>
+    <title>Professional Basic Calculator</title>
+    <!--Link For CSS-->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Container for Calculator-->
     <div class="calculator">
       <input type="text" id="display" disabled />
-
+      <!--Button Used in Calculator-->
       <div class="buttons">
-        <button class="func" onclick="appendToDisplay('.sin(')">sin</button>
-        <button class="func" onclick="appendToDisplay('.cos(')">cos</button>
-        <button class="func" onclick="appendToDisplay('.tan(')">tan</button>
-        <button class="func" onclick="appendToDisplay('.sqrt(')">√</button>
-        <button class="func" onclick="appendToDisplay('.log(')">ln</button>
-        <button class="func" onclick="appendToDisplay('.pow(10,')">10^x</button>
-        <button class="func" onclick="appendToDisplay('.PI')">π</button>
-        <button class="func" onclick="appendToDisplay('.E')">e</button>
-
+        <!-- Button Function -->
         <button class="func" onclick="appendToDisplay('(')">(</button>
         <button class="func" onclick="appendToDisplay(')')">)</button>
         <button class="operator" onclick="appendToDisplay('/')">/</button>
@@ -46,7 +40,7 @@
         <button class="equal" onclick="calculate()">=</button>
       </div>
     </div>
-
+    <!--Link For JavaScript-->
     <script src="script.js"></script>
   </body>
 </html>
