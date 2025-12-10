@@ -2,7 +2,6 @@ const display = document.getElementById("display");
 const buttons = document.querySelectorAll("button");
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
-
 let isLight = false;
 
 // Calculator Functionality
