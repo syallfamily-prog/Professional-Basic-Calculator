@@ -1,46 +1,26 @@
-/**
- * Calculator Display Element
- */
 const display = document.getElementById("display");
+let currentValue = "";
 
-/**
- *  Display Management Functions
- * These functions manage the calculator display.
- */
-function appendToDisplay(value) {
-  display.value += value;
-}
+document.querySelectorAll("button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    let value = btn.innerText;
 
-/**
- * Display Clear Function.
- * This function clears the entire display.
- */
-function clearDisplay() {
-  display.value = "";
-}
+    if (value === "C") {
+      currentValue = "";
+      display.innerText = "0";
+    } else if (value === "=") {
+      currentValue = currentValue.replace(/x/g, "*").replace(/÷/g, "/");
 
-/**
- * Display Deleted Function.
- * This function removes the last character from the display.
- */
-function deleteLast() {
-  display.value = display.value.slice(0, -1);
-}
-
-/**
- *Claculation Function.
- * This function evaluates the expression in the display and shows the result.
- */
-function calculate() {
-  try {
-    let result = eval(display.value);
-
-    if (typeof result === "number" && isFinite(result)) {
-      display.value = parseFloat(result.toFixed(10));
+      try {
+        display.innerText = eval(currentValue);
+        currentValue = display.innerText;
+      } catch {
+        display.innerText = "Error";
+        currentValue = "";
+      }
     } else {
-      display.value = "Error";
+      currentValue += value;
+      display.innerText = currentValue;
     }
-  } catch (e) {
-    display.value = "Error";
-  }
-}
+  });
+});
