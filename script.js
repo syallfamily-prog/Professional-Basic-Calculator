@@ -1,26 +1,30 @@
 const display = document.getElementById("display");
-let currentValue = "";
+const buttons = document.querySelectorAll("button");
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
 
-document.querySelectorAll("button").forEach((btn) => {
+let isLight = false;
+
+// Calculator Functionality
+buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    let value = btn.innerText;
-
-    if (value === "C") {
-      currentValue = "";
-      display.innerText = "0";
-    } else if (value === "=") {
-      currentValue = currentValue.replace(/x/g, "*").replace(/÷/g, "/");
-
+    if (btn.id === "clear") {
+      display.value = "";
+    } else if (btn.id === "equal") {
       try {
-        display.innerText = eval(currentValue);
-        currentValue = display.innerText;
+        display.value = eval(display.value);
       } catch {
-        display.innerText = "Error";
-        currentValue = "";
+        display.value = "Error";
       }
     } else {
-      currentValue += value;
-      display.innerText = currentValue;
+      display.value += btn.innerText;
     }
   });
+});
+
+// Theme Toggle
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+  isLight = !isLight;
+  themeIcon.textContent = isLight ? "☀️" : "🌙";
 });
